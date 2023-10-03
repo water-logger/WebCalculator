@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Silly Billy History Hider</h1>
+<hr>
+<input id="x">
+<button onclick="myFunction()">GOTO</button>
+<script>
+function myFunction() {
+  var myWindow = window.open("");
+  myWindow.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>');
+  myWindow.document.getElementById('ed').src = document.getElementById("x").value;
+}
+</script>
+
+</body>
+</html>
