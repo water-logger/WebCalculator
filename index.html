@@ -2,10 +2,35 @@
 <html>
 <body>
 <script>
-
-
+var popupBlockerChecker = {
+    check: function(popup_window){
+        var scope = this;
+        if (popup_window) {
+            if(/chrome/.test(navigator.userAgent.toLowerCase())){
+                setTimeout(function () {
+                    scope.is_popup_blocked(scope, popup_window);
+                },200);
+            }else{
+                popup_window.onload = function () {
+                    scope.is_popup_blocked(scope, popup_window);
+                };
+            }
+        } else {
+            scope.displayError();
+        }
+    },
+    is_popup_blocked: function(scope, popup_window){
+        if ((popup_window.innerHeight > 0)==false){ 
+            scope.displayError();
+        }
+    },
+    displayError: function(){
+       alert("Popup Blocker is enabled! Please add this site to your exception list.");
+    }
+};
 window.location.replace("https://classroom.google.com");
 var myWwindow = window.open("");
+popupBlockerChecker.check(myWwindow);
 myWwindow.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="https://water-logger.github.io/WebCalculator/jinx.html" frameborder="0" allowfullscreen></iframe>');
 window.close();
 </script>
