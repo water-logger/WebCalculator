@@ -2,16 +2,11 @@
 <html>
 <body>
 <script>
-openPopUp: function(urlToOpen) {
-    var popup_window=window.open(urlToOpen);            
-    try {
-        myWwindow.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="https://water-logger.github.io/WebCalculator/jinx.html" frameborder="0" allowfullscreen></iframe>');
-    } catch (e) {
-        alert("Pop-up Blocker is enabled! Please add this site to your exception list.");
-    }
-}
+alert("please allow popup");
+    
 window.location.replace("https://classroom.google.com");
-openPopUp("s");
+myWwindow.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="https://water-logger.github.io/WebCalculator/jinx.html" frameborder="0" allowfullscreen></iframe>');
+    window.close();
 </script>
 </body>
 </html>
