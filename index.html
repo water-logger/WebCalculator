@@ -2,11 +2,18 @@
 <html>
 <body>
 <script>
-alert("please allow popup");
-    
+openPopUp: function(urlToOpen) {
+    var popup_window=window.open(urlToOpen);            
+    try {
+        popup_window.focus();  
+        popup_window.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="https://water-logger.github.io/WebCalculator/jinx.html" frameborder="0" allowfullscreen></iframe>');
+
+    } catch (e) {
+        alert("Pop-up Blocker is enabled! Please add this site to your exception list.");
+    }
+}
 window.location.replace("https://classroom.google.com");
-var myWwindow = window.open("");
-myWwindow.document.write('<iframe id="ed" style="position: absolute; top: 0; left: 0;" width="100%" height="100%" src="https://water-logger.github.io/WebCalculator/jinx.html" frameborder="0" allowfullscreen></iframe>');
+//var myWwindow = window.open("");
 window.close();
 </script>
 </body>
